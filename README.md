@@ -59,3 +59,41 @@ can be provided on request.
 * APP is 4,349,952 bytes; the LSC layout uses 5,242,880 at `0x300000`.
 * `anyka_ipc` MD5 is `ab81807d…`, not `86396fdb14f2e029fa169afd4b598391`.
 * No `HT_IPC…` product strings in the binary.
+
+## RTSP / ONVIF — tested working
+
+RTSP and ONVIF are compiled into `anyka_ipc` but disabled by two config flags. With both set, the services
+start on every boot; no SD card, root shell or cloud connection is needed afterwards (jffs2 keeps them):
+
+```
+/etc/config/anyka_cfg.ini        rtsp_tools        = 1
+/etc/config/ipc_property.cjson   bool_onvif_enable = 1
+```
+
+| stream | URL | codec |
+|---|---|---|
+| main | `rtsp://admin:admin@<ip>:554/V_ENC_000` | HEVC 2304x1296 @ 15 fps + PCM A-law |
+| sub | `rtsp://admin:admin@<ip>:554/V_ENC_001` | H.264 640x360 @ 15 fps + PCM A-law |
+| ONVIF | `http://<ip>:10000/onvif/device_service` — HTTP Digest, `admin` / `admin` | |
+
+The stream path is **not** guessable from the binary — `anyka_ipc` only contains the format strings
+`rtsp://%s/%s` and `rtsp://%s:%d/%s`. It is returned by ONVIF `GetStreamUri` for the two profiles
+`PROFILE_000` and `PROFILE_001`. Verified with `ffprobe -rtsp_transport tcp`.
+
+Both services use the default `admin`/`admin`; change it and do not expose 554/10000 to the internet.
+
+## Notes on stopping the Tuya cloud
+
+Not applied to this unit (yet), but the options are:
+
+* **Router / VLAN**: deny the camera's MAC outbound WAN, keep LAN. Cleanest; needs a router that supports
+  per-device rules (a Google/Nest Wifi does not).
+* **DNS blackhole**: point DHCP DNS at Pi-hole/AdGuard Home and block `*.tuya.com`, `*.tuyaeu.com`,
+  `*.tuyaus.com`, `*.tuyacn.com`. Camera keeps working locally if it tolerates the cloud being gone.
+* **On-device iptables**: a boot script from SD (`update.nor.sh`) can drop everything except LAN/NTP and
+  avoid starting telnet. Requires keeping the card inserted, and must whitelist NTP or the clock stays at
+  1980 (the board has no RTC).
+
+Blocking the cloud can make some Tuya firmwares reboot-loop; the local RTSP feed may or may not survive.
+Test before trusting it.
+
