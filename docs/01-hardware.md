@@ -50,6 +50,23 @@ Total: `0x800000` = 8,388,608 bytes.
 - **ROOTFS** (mtd5) is a small initramfs/rootfs; the boot hook that makes this work lives in the vendor
   scripts on the APP side.
 
+## UART / debug access — negative result
+
+Two units of this ODM build were inspected (main board silkscreen **`5810-V7.0`**). There is **no accessible
+debug UART**:
+
+- the only unpopulated pad array on the main board belongs to the **`ULN2803L`** motor driver, not to the SoC;
+- there are **no test pads near the SoC** — no `TX`/`RX`/`GND`, no `UART`/`DBG` header, no silkscreen label;
+- the SPI flash is a **`25Q64`** (8 MB, SOP8), reachable only with a clip or by desoldering.
+
+Consequence: a UART boot log (for example of the OpenIPC `ak3918ev330-nor-lite` image) **cannot be captured
+on this board** without micro-soldering directly to the SoC, which is out of scope here. The board photos are
+in [`images/`](../images/): [main board](../images/board-5810-v7.0-main.jpg),
+[lens board](../images/board-5810-v7.0-lens.jpg).
+
+Flashing without UART is a one-way operation on this board (no console, no Ethernet), so it was deliberately
+not attempted.
+
 ## Why the APP image matters for OpenIPC
 
 The `#1970` request wanted the APP partition of an LSC V330L (5 MiB at `0x300000`, `anyka_ipc`
