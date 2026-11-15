@@ -9,6 +9,9 @@ video, audio, a correct clock and a steady LED.
 > **Status: working and verified on hardware.** RTSP + ONVIF + full video frames with **zero Tuya MQTT
 > sessions**, no router rules, no flash writes — the patched application is bind-mounted from the SD card
 > at boot and the camera reverts to stock when the card is removed.
+>
+> Validated on **two units**: the cloud-linked production camera and a spare that had never been linked
+> to a Tuya account. Both run the identical `anyka_ipc` build, and the same patched binary works on both.
 
 ## What is in this repository
 
@@ -20,7 +23,7 @@ video, audio, a correct clock and a steady LED.
 | [`docs/04-decloud-patch.md`](docs/04-decloud-patch.md) | the binary patch set: cloud off, RTSP on, video frames, LED, why each patch exists |
 | [`docs/05-sd-deployment.md`](docs/05-sd-deployment.md) | SD payload, boot hook, timezone/NTP, install and recovery |
 | [`docs/06-wifi-provisioning.md`](docs/06-wifi-provisioning.md) | joining Wi-Fi without the official app |
-| [`docs/07-xiaomi-mjsxj02cm.md`](docs/07-xiaomi-mjsxj02cm.md) | notes for the Xiaomi MJSXJ02CM (different SoC; what works, what doesn't) |
+| [Xiaomi MJSXJ02CM notes](https://github.com/666dsa666/xiaomi-mjsxj02cm-hacks) | **separate repository**: different SoC, downgrade-blocked firmware, UART/SPI mod plan |
 | [`docs/08-verification.md`](docs/08-verification.md) | the exact checks used to prove the result |
 | [`scripts/`](scripts/) | patch builder, SD preparation, payload, telnet/ONVIF tools |
 
