@@ -27,6 +27,14 @@ video, audio, a correct clock and a steady LED.
 | [`docs/07-verification.md`](docs/07-verification.md) | the exact checks used to prove the result |
 | [`scripts/`](scripts/) | patch builder, SD preparation, payload, telnet/ONVIF tools |
 
+## Related repositories
+
+- **Xiaomi MJSXJ02CM (Mi 360° 1080p)** — firmware downgrade block, UART/SPI mod plan:
+  [666dsa666/xiaomi-mjsxj02cm-hacks](https://github.com/666dsa666/xiaomi-mjsxj02cm-hacks)
+- **Xiongmai XM535D1 (`IPC-RM1-BLK535-2M6P`)** — stock RTSP/ONVIF already works locally; OpenIPC has no
+  video backend for this SoC:
+  [666dsa666/xiongmai-xm535d1-ipc-rm1-notes](https://github.com/666dsa666/xiongmai-xm535d1-ipc-rm1-notes)
+
 ## Quick start
 
 1. **Get your own stock `anyka_ipc`.** Read `/usr/bin/anyka_ipc` from the camera (root shell via the SD hook,
