@@ -46,7 +46,8 @@ If the hook is fixed, Wi-Fi provisioning requires code execution on the device:
 - **Same SoC family**: UART console / SPI flash access, then write `/etc/config/wpa_supplicant.conf` or
   use `wpa_cli`.
 - **Xiaomi MJSXJ02CM**: Mi Home performs the initial provisioning; without the app you must flash the
-  hacked rootfs first (see [`07-xiaomi-mjsxj02cm.md`](07-xiaomi-mjsxj02cm.md)).
+  hacked rootfs first (see the separate
+  [Xiaomi MJSXJ02CM notes](https://github.com/666dsa666/xiaomi-mjsxj02cm-hacks)).
 
 ## What does not work
 

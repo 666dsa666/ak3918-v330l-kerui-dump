@@ -81,7 +81,6 @@ Vendor firmware and components remain the property of their respective owners. U
 - [ErikBavenstrand/anyka-ak3918ev330-tuya-ipc-firmware](https://github.com/ErikBavenstrand/anyka-ak3918ev330-tuya-ipc-firmware) —
   sibling build on the same SoC; its patches and decompiled source were the reference that made the
   "skip cloud wait, start RTSP locally" approach obvious.
-- [tsunglung/xiaomi-360-hacks](https://github.com/tsunglung/xiaomi-360-hacks) — Xiaomi MJSXJ02CM UART mod notes.
 - [OpenIPC/firmware#1970](https://github.com/OpenIPC/firmware/issues/1970) — the dump request this started from.
 
 ## License
