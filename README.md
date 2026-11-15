@@ -24,7 +24,7 @@ video, audio, a correct clock and a steady LED.
 | [`docs/05-sd-deployment.md`](docs/05-sd-deployment.md) | SD payload, boot hook, timezone/NTP, install and recovery |
 | [`docs/06-wifi-provisioning.md`](docs/06-wifi-provisioning.md) | joining Wi-Fi without the official app |
 | [Xiaomi MJSXJ02CM notes](https://github.com/666dsa666/xiaomi-mjsxj02cm-hacks) | **separate repository**: different SoC, downgrade-blocked firmware, UART/SPI mod plan |
-| [`docs/08-verification.md`](docs/08-verification.md) | the exact checks used to prove the result |
+| [`docs/07-verification.md`](docs/07-verification.md) | the exact checks used to prove the result |
 | [`scripts/`](scripts/) | patch builder, SD preparation, payload, telnet/ONVIF tools |
 
 ## Quick start
