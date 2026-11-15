@@ -45,9 +45,8 @@ If the hook is fixed, Wi-Fi provisioning requires code execution on the device:
 
 - **Same SoC family**: UART console / SPI flash access, then write `/etc/config/wpa_supplicant.conf` or
   use `wpa_cli`.
-- **Xiaomi MJSXJ02CM**: Mi Home performs the initial provisioning; without the app you must flash the
-  hacked rootfs first (see the separate
-  [Xiaomi MJSXJ02CM notes](https://github.com/666dsa666/xiaomi-mjsxj02cm-hacks)).
+- **Other cameras / other SoCs**: this page covers the Anyka/Tuya family only. A camera whose stock
+  firmware requires its own app for provisioning needs its own platform-specific procedure.
 
 ## What does not work
 

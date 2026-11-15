@@ -23,17 +23,8 @@ video, audio, a correct clock and a steady LED.
 | [`docs/04-decloud-patch.md`](docs/04-decloud-patch.md) | the binary patch set: cloud off, RTSP on, video frames, LED, why each patch exists |
 | [`docs/05-sd-deployment.md`](docs/05-sd-deployment.md) | SD payload, boot hook, timezone/NTP, install and recovery |
 | [`docs/06-wifi-provisioning.md`](docs/06-wifi-provisioning.md) | joining Wi-Fi without the official app |
-| [Xiaomi MJSXJ02CM notes](https://github.com/666dsa666/xiaomi-mjsxj02cm-hacks) | **separate repository**: different SoC, downgrade-blocked firmware, UART/SPI mod plan |
 | [`docs/07-verification.md`](docs/07-verification.md) | the exact checks used to prove the result |
 | [`scripts/`](scripts/) | patch builder, SD preparation, payload, telnet/ONVIF tools |
-
-## Related repositories
-
-- **Xiaomi MJSXJ02CM (Mi 360° 1080p)** — firmware downgrade block, UART/SPI mod plan:
-  [666dsa666/xiaomi-mjsxj02cm-hacks](https://github.com/666dsa666/xiaomi-mjsxj02cm-hacks)
-- **Xiongmai XM535D1 (`IPC-RM1-BLK535-2M6P`)** — stock RTSP/ONVIF already works locally; OpenIPC has no
-  video backend for this SoC:
-  [666dsa666/xiongmai-xm535d1-ipc-rm1-notes](https://github.com/666dsa666/xiongmai-xm535d1-ipc-rm1-notes)
 
 ## Quick start
 
