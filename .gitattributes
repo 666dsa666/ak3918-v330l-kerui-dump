@@ -1,0 +1,2 @@
+# Keep LF everywhere: update.nor.sh must be LF or the camera's shell breaks.
+* text=auto eol=lf
